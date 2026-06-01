@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ESRA Technical Collaborations
 
-## Getting Started
+Next.js app for ESRA technical collaboration requests, inventory submissions, and Notion-backed options.
 
-First, run the development server:
+## Local Setup
 
 ```bash
+npm install
+cp .env.example .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Runtime Notion access is configured through environment variables, not committed secrets:
 
-## Learn More
+- `NOTION_TOKEN`
+- `REQUESTS_DS`
+- `CATALOG_DS`
+- `INVENTORY_DS`
+- `PARTNERSHIPS_DS`
 
-To learn more about Next.js, take a look at the following resources:
+The source code and image assets are in this repository. The production secrets live in Vercel, and the live data lives in Notion.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Important Files
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `app/page.tsx` - main request form
+- `app/inventory/page.tsx` - club inventory form
+- `app/api/options/route.ts` - reads Notion options
+- `app/api/submit/route.ts` - writes requests to Notion
+- `app/api/inventory/route.ts` - writes inventory rows to Notion
+- `lib/notion.ts` - Notion REST helpers and data source IDs
+- `public/` - tracked image and static assets
