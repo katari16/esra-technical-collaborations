@@ -4,7 +4,7 @@ export const VER = "2025-09-03";
 
 export const DS = {
   requests: process.env.REQUESTS_DS ?? "ac05a66d-eb5a-4fce-9bf5-f41c061c6590",
-  sponsors: process.env.SPONSORS_DS ?? "9634147a-5a23-43a3-9498-ff150d9fd945",
+  sponsors: process.env.PARTNERSHIPS_DS ?? "9634147a-5a23-43a3-9498-ff150d9fd945",
   catalog: process.env.CATALOG_DS ?? "207e23c1-8145-445d-8d40-2fd394e62d25",
   inventory: process.env.INVENTORY_DS ?? "6fde129e-7cd3-46dc-8bd9-d724abda9685",
 };
